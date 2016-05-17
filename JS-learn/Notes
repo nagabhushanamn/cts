@@ -1,0 +1,71 @@
+
+
+
+
+   when loading/executing JS in envi , what happens behind the scenes?
+   
+   
+   
+   --> 'Global Execution Context' created..
+   
+         browser  --> window
+         NodeJS   --> global
+      
+   --> 'this' keyword assigned to 'GLOBAl execution context.
+   
+   		in browser
+   	
+        this --> window
+        
+        
+      ----------------------------------------------------------------
+      
+      
+      ExecutionContext  - 2 pahes
+      
+        a. Initialization/creation phase  --> all variables/func hoisted ( Lifting-up ) to context with default-value ( undefined ).
+        b. Execution phase       --> instructions will get execute in order.
+        
+     --------------------------------------------------
+     
+     
+     in JS , every func invocation , will create child-execution context.
+     
+     
+     ----------------------------------------------------
+     
+     
+     Gloabl Execution
+     --------------------------------
+     |
+     |   var i=12;
+     |
+     |-------------------------------
+     
+     Child Execution Context
+     --------------------------------
+     |
+     |  var i=undefined
+     |
+     |
+     |------------------------------
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
