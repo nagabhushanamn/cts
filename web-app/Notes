@@ -1,0 +1,169 @@
+
+
+
+  web-server : live-server ( node package )
+  
+               adv : live re-load capability.
+               
+               
+  how to install ?        
+  
+  
+  if your behind cts-proxy
+  
+  
+  cmd> npm config set proxy http://cognizant.proxy:6050
+  cmd> npm config set strict-ssl false
+  
+  
+  
+  cmd> npm install live-server -g     
+  
+  ----------------------------------------------------
+  
+  what JS-lang can do HTML-page in browser ?
+  
+  
+  
+  JS  using Web APIs will bring dynamic-func to HTML-page
+  
+  
+  JS   ----> Web APIs  ----> HTML-page
+  
+  e.g Web APIs    
+  
+      DOM , XHR , TIMER , etc....
+      
+      web apis are provded by 'browser'
+  
+  	  browser web-apis abstracts JS objs
+  	
+  		
+  using DOM API
+  ----------------
+  
+  --> can create/retreive/update/delete HTML elements.
+  --> can change element's styles
+  --> can change element's attributes values
+  --> can change element's text content
+  
+  --> can do form-validation 
+  --> can read/write cookies
+  
+  --> able to create rich UI-comp.
+  
+  
+  using XHR API
+  --------------
+  --> can communicate with server asyc , will update response in existing page ( AJAX )
+  
+  
+  using Timer API
+  ----------------
+  
+  setTimeout() , setInterval()
+  
+  
+  HTML5 APIs
+  -----------
+  
+     --> canvas ( drawing )
+     --> audio/video
+     --> storage API
+     --> geo
+     --> web workers
+     
+     --> webGL
+     
+     
+  ----------------------------------------------   
+  
+ 
+    How JS executing in browser envi ?
+    
+    using JS how to bring concurrency ?
+    
+    
+    
+    
+  	e.g chrome browser
+  	
+  	   a. JS engine ( v8 )
+  	   
+  	      call-stack
+  	      heap
+  
+       b. Web APIs ( DOM , XHR , etc... )
+       c. callback/message-queue
+       d. event-loop
+       
+       
+       --------------------------------
+       
+       
+       
+       JS prograns never blocks when APIs are processing events. 
+       ifthat event handled, we will process the results thru callbacks.
+       
+       
+       ---------------------------------------------
+       
+       
+  
+  
+       complexities using plain-js
+       ---------------------------
+       
+       --> browser compatibility.
+       --> too much code for simple operations
+       --> performance and memory management
+  
+  
+      soln:
+      
+       use JS- libraries
+       
+        e.g
+        
+           jQuery 
+           ..
+  
+  
+  
+        limitations with jQuery
+        ------------------------
+        
+        --> too low level with DOM   ( tight coupling with View )
+        --> no soln for code organization
+        --> imperative style
+        
+        Soln:
+        -------
+        
+        
+        JS F.Ws  ( based on MVC/MVVM )
+        
+        -> KO ( library or F.W )
+        -> backbone
+        -> Angular   ( our focus )
+        -> Ember
+        
+        -> ExtJS
+        
+        -> DOJO
+        
+        etc...........
+        
+        ------------------------------------
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

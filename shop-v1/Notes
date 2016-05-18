@@ -1,0 +1,10 @@
+
+
+
+
+  MVC
+  ----
+  
+  M  --> Model  ( data )
+  V  --> View   ( HTML template )
+  C  --> Controller  ( appln behav )  
