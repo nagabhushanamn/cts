@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+
+<style type="text/css">
+.ng-scope {
+	border: 1px solid red;
+	padding: 10px;
+	margin: 5px;
+}
+</style>
+
+</head>
+<body class="container" ng-app="demoApp">
+
+	<div class="page-header">NG scope ( View Model )</div>
+
+	<span class="badge">{{color}}</span>  
+	<button class="btn btn-sm" ng-click="changeColor()">change color</button>
+	
+	
+	<div ng-controller="ColorController">
+		
+		<span class="badge">{{color}}</span>
+		<button class="btn btn-sm" ng-click="changeColor()">change color</button>
+		
+		<div ng-controller="AnotherController">
+			<span class="badge">{{color}}</span>
+			<button class="btn btn-sm" ng-click="changeColor()">change color</button>
+		</div>
+		
+	</div>
+	
+	<div ng-controller="ColorController">
+		<span class="badge">{{color}}</span>
+		<button class="btn btn-sm" ng-click="changeColor()">change color</button>
+	</div>
+	
+	
+	
+	<script type="text/javascript" src="angular-1.4.8/angular.js"></script>
+
+	<script type="text/javascript">
+		var mod = angular.module('demoApp', []);
+		
+		mod.run(function($rootScope) {
+			$rootScope.color='red';
+			$rootScope.changeColor=function(){
+				$rootScope.color='blue';
+			};
+		});
+		
+		mod.controller('ColorController', function($scope,$rootScope) {
+			$scope.color='yellow';
+			$scope.changeColor=function(){
+				$scope.color='blue';
+				$scope.$parent.color='blue';  // $rootScope.color='blue'
+			};
+		});
+		
+		mod.controller('AnotherController', function($scope) {
+			$scope.changeColor=function(){
+				$scope.$parent.$parent.color='blue';
+			};
+		});
+		
+	</script>
+
+
+</body>
+</html>

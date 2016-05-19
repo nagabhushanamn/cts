@@ -1,0 +1,30 @@
+
+
+
+
+  How angular implementing data-binding ?
+  
+  
+  NG - lifecycle
+  ---------------
+  
+  
+    a. compilation phase
+    
+      for every model property in scope,
+      angular will register 'watch expression' / listeners  ( watchers )
+      
+      
+      all 'watchers' will get execute internally when model becomes dirty
+      on either-side ( View or ViewModel ) to do data-binding.
+      
+      
+      all watchers will get executed by 'digest-loop'
+      
+      --------------------------------------------------
+      
+      in angular , we can also register our 'custom-watcher' on any scope.property.
+      
+      ---------------------------------------------------
+      
+      

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="container" ng-app="demoApp">
+
+	<div class="page-header">NG databinding</div>
+
+	
+	<div ng-controller="UserController">
+	
+		Name : <input id="name" ng-model="name"> 
+	      	   <button class="btn btn-primary" id="fullBtn" ng-click="full()">FullName</button>
+	           <button class="btn btn-primary" id="resetBtn" ng-click="reset()">Reset</button>
+	
+		<hr/>
+		
+		Hello <span id="nameSpan" class="badge">{{::name}}</span>
+	
+	</div>
+	
+	<hr/>
+	
+	
+	<script type="text/javascript" src="angular-1.4.8/angular.js"></script>
+
+	<script type="text/javascript">
+
+	
+	/* 
+	
+	var name="";
+	
+	
+	// using DOM
+	var inpField=document.querySelector('#name');
+	var fullBtn=document.querySelector('#fullBtn');
+	var resetBtn=document.querySelector('#resetBtn');
+	var nameSpan=document.querySelector('#nameSpan');
+	
+	
+	
+	inpField.addEventListener('keyup',function(e){
+		name=this.value;
+		updateDOM();
+	});
+	
+	fullBtn.addEventListener('click',function(e){
+		name='Nagabhushanam';
+		updateDOM();
+	});
+	
+	resetBtn.addEventListener('click',function(e){
+		name='';
+		updateDOM();
+	});
+	
+	function updateDOM(){
+		nameSpan.innerHTML=name;
+		inpField.value=name;
+	}
+	
+	updateDOM();
+	
+	*/
+	
+	</script>
+
+	<script type="text/javascript">
+		var mod = angular.module('demoApp', []);
+		
+		mod.controller('UserController', function($scope) {
+			
+			$scope.name='Naga';
+			
+			$scope.reset=function(){
+				$scope.name='';
+			};
+			$scope.full=function(){
+				$scope.name='Nagabhushanam';
+			};
+			
+			$scope.$watch('name',function(newVal,oldVal){
+				console.log('$scope.name custom watcher executing');
+				console.log(newVal);
+				console.log(oldVal);
+			});
+			
+		});
+		
+	</script>
+
+
+</body>
+</html>
