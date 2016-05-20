@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
+
+<style type="text/css">
+.ng-scope {
+	border: 1px solid red;
+	margin: 15px;
+	padding: 15px;
+}
+</style>
+
+</head>
+
+<body class="container" ng-app="demoApp">
+
+	<div class="page-header">NG - directive scope _ Ex1</div>
+
+
+	<div ng-controller="ColorController">
+
+		<input ng-model="color">
+
+		<hr />
+		<div hello-world="green"></div>
+		<hr />
+		<div hello-world></div>
+
+	</div>
+
+	<!-- <script type="text/javascript" src="jquery-2.2.0.js"></script> -->
+	<script type="text/javascript" src="angular-1.4.8/angular.js"></script>
+
+	<script type="text/javascript">
+		var mod = angular.module('demoApp', []);
+
+		mod.controller('ColorController', function($scope) {
+			$scope.color = 'yellow';
+		});
+
+		mod.directive('helloWorld', function() {
+			return {
+				restrict : 'AECM',
+				replace : false,
+				scope : false,
+				//template : "<h4>Angular World</h4>"
+				templateUrl : "templates/hello-world.html",
+				link : function(scope, iElement, iAttrs) {
+
+					//console.log('link func called....');
+					//console.log(scope.color);
+
+					//scope.color='grey';
+
+					iElement.on('mouseenter', function(e) {
+						iElement.css('cursor', 'pointer');
+					});
+
+					iElement.on('click', function(e) {
+						console.log('click : changing scope.color');
+						//iElement.find('div').css('background-color','grey');
+
+						// scope.$apply()  --> will run digestloop   from $rootScope
+
+						/* scope.$apply(function() {
+							scope.color = 'grey';
+						}); */
+
+						//scope.$digest();  --> will run digestloop  in this scope
+						scope.color = 'grey';
+						scope.$digest();
+
+					});
+
+					if (iAttrs.helloWorld) {
+						scope.color = iAttrs.helloWorld;
+					}
+
+				}
+			};
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
+</head>
+
+<body class="container" ng-app="demoApp">
+
+	<div class="page-header">NG - directive basic concepts</div>
+
+
+	<div hello-world></div>
+	<div hello:world></div>
+
+	<hr />
+
+	<hello-world></hello-world>
+
+	<hr />
+
+
+	<div class="hello-world"></div>
+
+	<hr />
+	
+	<!-- directive:hello-world -->
+
+
+	<script type="text/javascript" src="angular-1.4.8/angular.js"></script>
+
+	<script type="text/javascript">
+		var mod = angular.module('demoApp', []);
+		mod.directive('helloWorld', function() {
+			return {
+				restrict : 'AECM',
+				replace : false,
+				template : "<h4>Angular World</h4>"
+			};
+		});
+	</script>
+
+</body>
+</html>

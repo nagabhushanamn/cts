@@ -28,3 +28,80 @@
       ---------------------------------------------------
       
       
+      
+      
+    ==================================================
+    
+    
+    NG - validation:
+    -----------------
+    
+    
+    by default , angular validate all forms which  are in angular-application
+    
+    
+    angular validate form/form-fields in 2 ways
+    
+    way- 1 : based on HTML-5 form validation attributes
+    way- 2 : angular directives.
+    
+    
+    after validating , angular keeps form/form-fields in following state(s)
+    
+    
+    
+    -> ng-pristine
+    -> ng-dirty
+    
+    -> ng-invalid
+    -> ng-valid
+    
+    -> ng-untouched
+    -> ng-touched
+    
+    -------------------------------------------------
+    
+    
+    
+    
+    ==================================================
+    
+    
+    
+    
+    
+    NG - components
+    ----------------
+    
+    1. controller
+    2. filters
+    3. directives
+    4. services  
+    
+    
+    
+    ==================================================
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
