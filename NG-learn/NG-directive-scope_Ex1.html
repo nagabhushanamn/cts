@@ -18,7 +18,7 @@
 
 <body class="container" ng-app="demoApp">
 
-	<div class="page-header">NG - directive scope _ Ex1</div>
+	<div class="page-header">NG - directive scope _ Ex1  ( existing scope )</div>
 
 
 	<div ng-controller="ColorController">
@@ -26,7 +26,7 @@
 		<input ng-model="color">
 
 		<hr />
-		<div hello-world="green"></div>
+		<div hello-world color="green"></div>
 		<hr />
 		<div hello-world></div>
 
@@ -44,10 +44,8 @@
 
 		mod.directive('helloWorld', function() {
 			return {
-				restrict : 'AECM',
-				replace : false,
+				restrict : 'AE',
 				scope : false,
-				//template : "<h4>Angular World</h4>"
 				templateUrl : "templates/hello-world.html",
 				link : function(scope, iElement, iAttrs) {
 
@@ -61,23 +59,26 @@
 					});
 
 					iElement.on('click', function(e) {
+
 						console.log('click : changing scope.color');
+
 						//iElement.find('div').css('background-color','grey');
 
-						// scope.$apply()  --> will run digestloop   from $rootScope
+						// scope.$apply()  --> will run digestloop from $rootScope
 
 						/* scope.$apply(function() {
 							scope.color = 'grey';
 						}); */
 
 						//scope.$digest();  --> will run digestloop  in this scope
-						scope.color = 'grey';
+						scope.color = '#fff';
 						scope.$digest();
 
 					});
-
-					if (iAttrs.helloWorld) {
-						scope.color = iAttrs.helloWorld;
+					
+					
+					if(iAttrs.color){
+						scope.color=iAttrs.color;
 					}
 
 				}

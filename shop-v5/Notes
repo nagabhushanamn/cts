@@ -1,0 +1,45 @@
+
+
+
+
+  MVC
+  ----
+  
+  M  --> Model  ( data )
+  V  --> View   ( HTML template )
+  C  --> Controller  ( appln behav )  
+  
+  
+  
+  MVVM
+  ---------
+  
+  M  --> Model
+  V  --> View
+  VM --> ViewModel
+  
+  ----------------------------
+  
+  
+  
+  NG - scope
+  NG - data-binding
+  
+  ----------------------------------
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

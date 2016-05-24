@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
+<style type="text/css">
+</style>
+</head>
+
+<body class="container" ng-app="demoApp">
+
+	<div class="page-header">NG - directive life-cycle ( advanced )</div>
+
+	
+	<div parent-directive>
+	
+	</div>
+
+
+	<script type="text/javascript" src="angular-1.4.8/angular.js"></script>
+
+	<script type="text/javascript">
+		var mod = angular.module('demoApp', []);
+
+		mod.directive('parentDirective', function() {
+
+			return {
+				restrict : "AE",
+				replace:true,
+				scope:true,
+				template: "<div> i am {{name}}   <div child-directive></div> </div>",
+				controller : function($scope) {
+					// controller code here...
+					console.log('parentDirective.controller()');
+					this.name='Nag';
+					this.sayName=function(){
+						console.log('im '+this.name);
+					}
+					$scope.name=this.name;
+				},
+
+				compile : function(tElement, tAttrs) {
+					
+					// compile code here...
+					console.log('parentDirective.compile()');
+
+					//console.dir(tElement);
+					tElement.addClass('jumbotron');
+
+					return {
+
+						pre : function(scope) {
+							// pre-link code here...
+							console.log('parentDirective.preLinkfunc()');
+							
+							//scope.name='Nag';
+						},
+
+						post : function(scope,iElement,iAttrs) {
+							// post-link code here...
+							console.log('parentDirective.postLinkfunc()');
+							
+							//scope.name='Nag';
+							
+						}
+					};
+				}
+
+			};
+
+		});
+
+		
+		mod.directive('childDirective', function() {
+
+			return {
+				restrict : "AE",
+				replace:true,
+				scope:false,
+				require:'^parentDirective',
+				template:'<div> {{message}} </div>',
+				controller : function($scope) {
+					console.log('childDirective.controller()');
+				},
+
+				compile : function(tElement, tAttrs) {
+
+					// compile code here...
+					console.log('childDirective.compile()');
+					tElement.css('border','1px solid blue');
+					tElement.css('padding','10px');
+
+					return {
+
+						pre : function() {
+							// pre-link code here...
+							console.log('childDirective.preLinkfunc()');
+						},
+
+						post : function(scope,iElement,iAttrs,controller) {
+							// post-link code here...
+							console.log('childDirective.postLinkfunc()');
+							//scope.message="my dad is "+scope.name
+							scope.message="my dad is "+controller.name
+							
+						}
+					};
+				}
+
+			};
+
+		});
+		
+		
+		mod.directive('someDirective',function(){
+			return{
+				controller:function(){
+					
+				},
+				link:function(){
+					
+				}
+			};
+		});
+		
+	</script>
+
+</body>
+</html>

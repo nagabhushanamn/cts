@@ -76,6 +76,7 @@
     1. controller
     2. filters
     3. directives
+    
     4. services  
     
     
@@ -83,6 +84,63 @@
     ==================================================
     
     
+    
+    
+    directive - reference-link
+    
+    
+    https://www.toptal.com/angular-js/angular-js-demystifying-directives
+    
+    
+    
+     ==================================================
+    
+    
+    
+    
+     NG - services
+     --------------
+     
+     
+     
+	 features
+	 ----------
+     
+     --> all 'singleton' components  ( one instance per ng-app )
+     --> they will get instantiated on demand ( Lazy )
+    
+    why we need service comp ?
+    
+    --> to have angular appln-behav which is common to
+    all controller(s),filter(s) and directive(s)
+    
+    --> to maintain application-state.
+    
+    
+    e.g
+    
+    --> communicating with server-side programs
+    --> routing
+    --> i18n
+    --> consuming REST API
+    --> security..
+    --> dealing with HTML 5 APIS like localstorage
+    
+    
+    
+    
+    
+    
+    -----------------------------
+    
+    
+    How to create service-components ?
+    
+    
+    mod.provider -----create/provide-->  service-comp
+    
+    
+    -----------------------------------
     
     
     
