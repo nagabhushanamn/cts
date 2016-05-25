@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
+<style type="text/css">
+</style>
+</head>
+
+<body class="container">
+
+	<div class="page-header">NG - Promise API ( without Angular )</div>
+
+
+	<script type="text/javascript">
+		var home = {
+			getCoffe : function() {
+
+				// if browser supports ES-6
+				var promise = new Promise(function(resolve, reject) {
+
+					setTimeout(function() {
+						console.log('didnt pepare coffee');
+						//resolve('boost coffee');
+						reject('No Milk');
+					}, 5000);
+
+				});
+
+				return promise;
+
+			}
+		};
+
+		var trainer = {
+			doTeach : function() {
+				console.log('teaching....');
+				console.log('req coffee');
+				var promise = home.getCoffe();
+				console.log('got promise from home  on coffee');
+				promise.then(function(result) {
+					console.log('having....' + result);
+				}, function(reason) {
+					console.log('got ' + reason + " , need to outside");
+				});
+				console.log('further teaching....finished..');
+			}
+		};
+		
+		trainer.doTeach();
+		
+	</script>
+
+</body>
+</html>

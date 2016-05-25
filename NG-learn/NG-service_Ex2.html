@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
+<style type="text/css">
+</style>
+</head>
+
+<body class="container" ng-app="demoApp">
+
+	<div class="page-header">NG - Service _ Ex2</div>
+
+
+	<div class="well" ng-controller="HitController">
+		<button class="btn btn-primary" ng-click="doHit()">Hit-1</button>
+		<span class="badge">{{count}}</span>
+	</div>
+	<div class="well" ng-controller="HitController">
+		<button class="btn btn-primary" ng-click="doHit()">Hit-2</button>
+		<span class="badge">{{count}}</span>
+	</div>
+	<div class="well" ng-controller="KickController">
+		<button class="btn btn-primary" ng-click="doKick()">Kick</button>
+		<span class="badge">{{count}}</span>
+	</div>
+
+
+	<script type="text/javascript" src="angular-1.4.8/angular.js"></script>
+
+	<script type="text/javascript">
+		
+		var mod = angular.module('demoApp', []);
+		
+		
+		mod.controller('HitController', function($scope,counterService) {
+			console.log('New HitController instance created....');
+			$scope.count = counterService.getCount();
+			$scope.doHit = function() {
+				counterService.doCount();
+				$scope.count = counterService.getCount();
+			}
+
+		});
+
+		mod.controller('KickController', function($scope,counterService) {
+			console.log('New KickController instance created....');
+			$scope.count = counterService.getCount();
+			$scope.doKick = function() {
+				counterService.doCount();
+				$scope.count = counterService.getCount();
+			}
+
+		});
+
+		//-------------------------------------------------
+		
+		//$injector  -->  DI
+		
+		//-------------------------------------------------
+
+		/* 
+		mod.provider('counterService', function() {
+
+			console.log('counterServiceProvider instance created....');
+			
+			this.count = 0;
+
+			var self = this;
+
+			// factory-method  
+			this.$get = function() {
+				
+				console.log('counterServiceProvider\'s factory called.. service instance created... ');
+
+				var service = {
+					doCount : function() {
+						self.count++;
+					},
+					getCount : function() {
+						return self.count;
+					}
+				};
+
+				return service;
+
+			}
+
+		});
+		
+		*/
+		
+		mod.factory('counterService',function(){
+			
+			var count=0;
+			
+			var service = {
+					doCount : function() {
+						count++;
+					},
+					getCount : function() {
+						return count;
+					}
+				};
+
+			return service;
+			
+		});
+		
+	</script>
+
+</body>
+</html>

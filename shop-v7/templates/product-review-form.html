@@ -1,0 +1,29 @@
+
+<form name="reviewForm" ng-submit="reviewForm.$valid&&addNewReview(product)"
+                        novalidate>
+	
+	<blockquote class="well" ng-show="newReview.stars">
+		<span>{{newReview.stars}}</span>
+		<p>{{newReview.comment}} <small>{{newReview.author}}</small> </p>
+	</blockquote>
+	
+	<hr/>
+
+	<div class="form-group">
+		<label for="stars">Stars</label>
+		<select id="stars" ng-options="n for n in [1,2,3,4,5]" class="form-control" ng-model="newReview.stars" required></select>
+	</div>
+	
+	<div class="form-group">
+		<label for="comment">Comment</label>
+		<textarea rows="5" cols="35" class="form-control" id="comment" ng-model="newReview.comment" required></textarea>		
+	</div>
+	
+	<div class="form-group">
+		<label for="author">Email</label>
+		<input type="email" id="author" class="form-control" ng-model="newReview.author" ng-disabled="true" required>
+	</div>
+	
+	<button type="submit" class="btn btn-primary">submit</button>   is valid : {{reviewForm.$valid}}
+	
+</form>

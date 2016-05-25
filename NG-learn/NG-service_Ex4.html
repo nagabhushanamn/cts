@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>shop</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="jquery-ui-1.11.4.custom/jquery-ui.css" rel="stylesheet">
+<style type="text/css">
+</style>
+</head>
+
+<body class="container" ng-app="demoApp">
+
+	<div class="page-header">NG - Service _ Ex4</div>
+
+
+	<div class="well" ng-controller="HitController">
+		<button class="btn btn-primary" ng-click="doHit()">Hit-1</button>
+		<span class="badge">{{count}}</span>
+	</div>
+	<div class="well" ng-controller="HitController">
+		<button class="btn btn-primary" ng-click="doHit()">Hit-2</button>
+		<span class="badge">{{count}}</span>
+	</div>
+	<div class="well" ng-controller="KickController">
+		<button class="btn btn-primary" ng-click="doKick()">Kick</button>
+		<span class="badge">{{count}}</span>
+	</div>
+
+
+	<script type="text/javascript" src="angular-1.4.8/angular.js"></script>
+
+	<script type="text/javascript">
+		
+		var mod = angular.module('demoApp', []);
+		
+		
+		mod.controller('HitController', function($scope,counterService,trainer) {
+			console.log('New HitController instance created....');
+			$scope.count = counterService.getCount();
+			$scope.doHit = function() {
+				counterService.doCount();
+				$scope.count = counterService.getCount();
+				trainer.doTeach();
+			}
+
+		});
+
+		mod.controller('KickController', function($scope,counterService) {
+			console.log('New KickController instance created....');
+			$scope.count = counterService.getCount();
+			$scope.doKick = function() {
+				counterService.doCount();
+				$scope.count = counterService.getCount();
+			}
+
+		});
+
+		//-------------------------------------------------
+		
+		//$injector  -->  DI
+		
+		//-------------------------------------------------
+
+		// object
+		var o={
+				count:0,
+				doCount:function(){
+					this.count++;
+				},
+				getCount:function(){
+					return this.count;
+				}
+		};
+		
+		mod.value('counterService',o);
+		
+		
+		var trainer={
+				name:'Nag',
+				doTeach:function(){
+					console.log(this.name +" teaching NG");
+				}
+		};
+		
+		mod.value('trainer',trainer);
+	
+		
+		
+	</script>
+
+</body>
+</html>

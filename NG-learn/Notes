@@ -131,16 +131,76 @@
     
     
     
-    -----------------------------
+    ----------------------------------------------------------------
     
     
     How to create service-components ?
     
     
-    mod.provider -----create/provide-->  service-comp
+    mod.provider -----create/provide-->  service-comp  thru factory method.
     
     
-    -----------------------------------
+    ------------------------------------------------------------
+    
+    
+    
+    
+    Promise/Deferred API / pattern
+    -------------------------------
+    
+    use:-
+    
+    to execute any func asynch without blocking
+    
+    or
+    
+    delaying/deferring some actions to future
+    
+    
+    e.g
+    
+    
+    home={
+    
+	    getTea:function(){
+	    	
+	    	promise=createProimse();
+	    	
+	    	//promise.resolve();
+	    	promise.reject();
+	    	
+	    	return promise;
+	    	
+	    }
+    };
+    
+    
+    trainer={
+    
+    doTeach:function(){
+    	// teaching......
+    	// requesting tea..
+    	var promise=home.getTea();
+    	promise.then(function(){},function(){});
+    	// further teaching...finished.
+    }
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

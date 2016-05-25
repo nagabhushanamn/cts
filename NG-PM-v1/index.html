@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PM</title>
+<link href="css/bootstrap.css" rel="stylesheet">
+</head>
+<body class="container">
+
+
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">PM</a>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"> <span class="glyphicon glyphicon-home"></span>Home</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div ng-app="pm">
+
+		<div class="row">
+
+			<div class="col-sm-3 col-md-3">
+				<ul class="nav nav-stacked">
+					<li><a href="#/view-all">View-All</a></li>
+					<li><a href="#/add-new">Add New</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-md-9">
+				<ng-view></ng-view>
+			</div>
+
+		</div>
+		
+		<div class="well"></div>
+
+
+	</div>
+
+
+
+	<script type="text/javascript" src="angular-1.4.8/angular.js"></script>
+	<script type="text/javascript" src="angular-1.4.8/angular-route.js"></script>
+
+	<script type="text/javascript" src="js/pm.js"></script>
+
+
+</body>
+</html>

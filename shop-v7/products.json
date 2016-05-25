@@ -1,0 +1,33 @@
+[
+	{
+		"id": 11,
+		"name": "Laptop",
+		"price": 10000,
+		"make": "2016-03-30T06:04:45.000Z",
+		"description": "bla bla"
+	},
+
+	{
+		"id": 23,
+		"name": "product",
+		"price": 10000,
+		"make": "2016-02-08T00:00:00.000Z",
+		"description": "bla bla"
+	},
+
+	{
+		"id": 26,
+		"name": "New product",
+		"price": 10000,
+		"make": "2016-05-14T11:23:48.000Z",
+		"description": "bla"
+	},
+
+	{
+		"id": 27,
+		"name": "string",
+		"price": 0,
+		"make": "2016-05-25T00:00:00.000Z",
+		"description": "string"
+	}
+]

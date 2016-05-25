@@ -1,0 +1,21 @@
+<div class="row">
+			
+	<div class="col-xs-3 col-sm-3 col-md-3">
+		<img alt="" ng-src="{{product.images[0].thumb}}" class="img-responsive" style="width: 100px">
+	</div>
+	<div class="col-xs-3 col-sm-9 col-md-9">
+	
+			<div class="data">
+				<span class="badge">{{$index+1}}</span>
+				<h4>{{product.name | uppercase}}  <small>{{product.make|date:'mediumDate'}}</small> </h4>
+				<h5>{{product.price | priceDiscount:product.discount | currency : '&#8377;' : 1  }}</h5>
+				<button ng-show="product.canBuy" class="btn btn-primary">Add to cart</button>
+			</div>
+			
+			<hr/>
+			
+			<product-tabs></product-tabs>
+			
+	</div>	
+	
+</div>

@@ -1,0 +1,7 @@
+
+
+
+  In angular , we can do routing in 2-ways
+  
+  way-1 : using 'ngRoute' module  ( basic )
+  way-2 : using 'ui-router' module   ( advanced module from angular UI-team )   
