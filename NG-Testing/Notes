@@ -1,0 +1,82 @@
+
+
+
+   Angular - App
+   --------------
+   
+   
+     module(s)
+     
+      component(s) --> controller , filter , directive , service
+      
+     ----------------------------- 
+     
+     
+     Unit Testing  
+     E2E  Testing
+     
+     
+     -----------------------------
+     
+     apply TDD or BDD style
+     
+     -----------------------------
+     
+     
+     
+     UniTesting
+     -----------
+     
+     we need Testing F.W
+     
+       --> to write test-cases
+       --> to run and generate reports
+       
+       
+     some popular sTesting F.Ws for JS-lang
+     
+     1. jasmine
+     2. mocha  with chai and sinon
+     
+     
+     E2E Testing
+     ------------
+     
+     using jasmine , we write e2e test-cases
+     
+     to run e2e test cases , we need 'protractor' test-runner which is based on 'selinuim server'
+     
+     
+     e.g
+     
+     proj
+     -------
+     
+        web-calculator using angular
+        
+     
+        module:  calc
+        
+         comp: CalcController
+     
+     
+     ---------------------------------
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
