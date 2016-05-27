@@ -4,7 +4,7 @@
 	<ul class="nav nav-tabs">
 		<li ng-class="{active:isTabSelected(1)}"><a href ng-click="changeTab(1)">Description</a></li>
 		<li ng-class="{active:isTabSelected(2)}"><a href ng-click="changeTab(2)">Specifiction</a></li>
-		<li ng-class="{active:isTabSelected(3)}"><a href ng-click="changeTab(3)">Reviews</a></li>
+		<li ng-class="{active:isTabSelected(3)}"><a href ng-click="changeTab(3,product)">Reviews</a></li>
 	</ul>
 	
 	<div class="panel" ng-show="isTabSelected(1)">

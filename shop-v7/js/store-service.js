@@ -4,34 +4,27 @@
 
 (function() {
 
-	var storeServiceModule = angular.module('store-service', []);
+	var mod = angular.module('store-service', [ 'ngResource' ]);
 
-	// Service
-	storeServiceModule.factory('storeService', function($q, $http) {
+	mod.factory('Product', function($resource) {
 
-		var url = 'http://0.0.0.0:3000/api/products';
+		var uri = "http://0.0.0.0:3000/api/products/:id";
+		var Product = $resource(uri, {
+			id : '@id'
+		});
 
-		// var url="products.json;
+		return Product;
 
-		var service = {
-			loadAllItems : function() {
+	});
 
-				var defer = $q.defer();
+	mod.factory('Review', function($resource) {
 
-				// communicate with server .....
-				var promise = $http.get(url); // AJAX call using XHR API
-				promise.then(function(resp) {
-					defer.resolve(resp.data);
-				}, function(reason) {
-					defer.reject(reason);
-				});
+		var uri = "http://0.0.0.0:3000/api/products/:productId/reviews";
+		var Review = $resource(uri, {
+			productId : '@productId'
+		});
 
-				return defer.promise;
-
-			}
-		};
-
-		return service;
+		return Review;
 
 	});
 

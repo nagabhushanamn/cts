@@ -4,25 +4,29 @@
 
 (function() {
 
-	var storeModule = angular.module('store', ['store-service']);
+	var storeModule = angular.module('store', [ 'store-service' ]);
 
 	// --------------------------------------------
-	
 
 	// Controller
-	storeModule.controller('StoreController', function($scope, storeService) {
-		var promise = storeService.loadAllItems();
-		promise.then(function(items) {
+	storeModule.controller('StoreController', function($scope, Product) {
+		Product.query().$promise.then(function(items) {
 			$scope.products = items;
-		}, function(reason) {
-			$scope.message = reason;
 		});
 	});
 
-	storeModule.controller('TabsController', function($scope) {
+	storeModule.controller('TabsController', function($scope, Review) {
 		$scope.tab = 1; // ng-init="tab=1"
-		$scope.changeTab = function(tabIndex) {
+		$scope.changeTab = function(tabIndex, product) {
+
 			$scope.tab = tabIndex;
+
+			if (tabIndex === 3) {
+				product.reviews = Review.query({
+					productId : product.id
+				});
+			}
+
 		};
 		$scope.isTabSelected = function(tabIndex) {
 			return $scope.tab === tabIndex;
@@ -81,7 +85,7 @@
 		};
 	});
 
-	storeModule.directive('productReviewForm', function() {
+	storeModule.directive('productReviewForm', function(Review) {
 		return {
 			restrict : "AE",
 			scope : true,
@@ -91,13 +95,27 @@
 					author : 'nag@gmail.com'
 				};
 				$scope.addNewReview = function(product) {
-					// send review-form data to server with productId ( next
-					// session , we'll learn )
-					product.reviews.push($scope.newReview);
-					$scope.newReview = {};
-					$scope.newReview = {
-						author : 'nag@gmail.com'
-					};
+
+					var review = new Review();
+					angular.extend(review, $scope.newReview);
+					review.productId = product.id;
+
+					review.$save(function(review) {
+
+						if (product.reviews) {
+							product.reviews.push(review);
+						} else {
+							product.reviews = [];
+							product.reviews.push(review);
+						}
+
+						$scope.newReview = {};
+						$scope.newReview = {
+							author : 'nag@gmail.com'
+						};
+
+					});
+
 				};
 			}
 		};

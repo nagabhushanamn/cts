@@ -1,0 +1,33 @@
+
+
+<table class="table table-bordered">
+
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>Price</h>
+		<th>Make</th>
+		<th colspan="2"></th>
+	</tr>
+	
+	<tr ng-repeat="product in products">
+		<td>{{product.id}}</a></td>
+		<!-- <td><a href="#/view-all/view-product/{{product.id}}">{{product.name}}</a></td> -->
+		<td><a ui-sref="all.view({pid:product.id})">{{product.name}}</a></td>
+		<td>{{product.price|currency}}</td>
+		<td>{{product.make |date}}</td>
+		<td><a ui-sref=".edit({pid:product.id})"><span class="glyphicon glyphicon-edit"></span></a></td>
+		<td><a href ng-click="remove(product.id)"><span class="glyphicon glyphicon-trash"></span></a></td>
+	</tr>
+
+</table>
+
+
+<div class="row">
+	<div class="col-md-6 col-sm-6">
+		<ui-view name="view1"></ui-view>
+	</div>
+	<div class="col-md-6 col-sm-6">
+		<ui-view name="view2"></ui-view>
+	</div>
+</div>
